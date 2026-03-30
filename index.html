@@ -2,38 +2,690 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms of Use — Gymrat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LevelUp Labs — Premium Digital Fitness Experiences</title>
+  <meta name="description" content="LevelUp Labs builds premium digital fitness experiences designed around progression, retention and identity." />
+  <meta name="theme-color" content="#050706" />
+  <meta property="og:title" content="LevelUp Labs" />
+  <meta property="og:description" content="Premium digital fitness experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-cover.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --bg: #050706;
+      --bg-2: #0a100d;
+      --panel: rgba(255,255,255,0.05);
+      --stroke: rgba(255,255,255,0.08);
+      --text: #f4fbf5;
+      --muted: #9daf9f;
+      --soft: #738273;
+      --green: #41ff74;
+      --gold: #e2ad39;
+      --shadow: 0 30px 80px rgba(0,0,0,0.46);
+      --shadow-soft: 0 18px 50px rgba(0,0,0,0.32);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #050706;
-      color: #fff;
-      padding: 40px 20px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 12%, rgba(65,255,116,0.11), transparent 28%),
+        radial-gradient(circle at 84% 8%, rgba(226,173,57,0.10), transparent 22%),
+        linear-gradient(180deg, #030504 0%, #08100c 100%);
+      overflow-x: hidden;
     }
-    a { color: #41ff74; text-decoration: none; }
-    h1 { font-size: 32px; }
-    h2 { margin-top: 28px; }
-    p { color: #aaa; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(4, 8, 6, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      animation: fadeDown 0.7s ease;
+    }
+
+    .topbar-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #09110d;
+      box-shadow: 0 14px 32px rgba(65,255,116,0.16);
+      flex: 0 0 auto;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 1.06rem;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 600;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 14px;
+      transition: 0.25s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 22px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #081108;
+      background: linear-gradient(135deg, var(--green) 0%, #7dff9f 100%);
+      box-shadow: 0 18px 40px rgba(65,255,116,0.22);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+    }
+
+    .hero-panel {
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at top right, rgba(65,255,116,0.14), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      padding: 44px;
+      animation: fadeUp 0.9s ease;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #dcffe3;
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .eyebrow-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--green), var(--gold));
+      box-shadow: 0 0 0 6px rgba(65,255,116,0.10);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      line-height: 0.93;
+      letter-spacing: -0.065em;
+      max-width: 11ch;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #80ff9e 52%, #ffd86d 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 760px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      color: var(--soft);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 44px 0 30px;
+    }
+
+    .section-kicker {
+      color: #b9ffc5;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .section-sub {
+      max-width: 740px;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.76;
+      margin-top: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.18rem;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.96rem;
+    }
+
+    .showcase {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .showcase-media {
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(65,255,116,0.10), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      padding: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 420px;
+    }
+
+    .showcase-media img {
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 36px rgba(65,255,116,0.14));
+    }
+
+    .showcase-copy {
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+
+    .showcase-copy .kicker {
+      color: #b9ffc5;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .showcase-copy h2 {
+      margin-bottom: 0;
+    }
+
+    .showcase-copy p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.78;
+      font-size: 1rem;
+    }
+
+    .value-band {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .value-card {
+      min-height: 200px;
+      border-radius: 24px;
+      padding: 26px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .value-card::before {
+      content: "";
+      position: absolute;
+      inset: -10% auto auto -10%;
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle, rgba(65,255,116,0.16), transparent 68%);
+      pointer-events: none;
+    }
+
+    .value-card:nth-child(2)::before {
+      background: radial-gradient(circle, rgba(226,173,57,0.18), transparent 68%);
+    }
+
+    .value-card:nth-child(3)::before {
+      background: radial-gradient(circle, rgba(255,255,255,0.10), transparent 68%);
+    }
+
+    .value-card .small {
+      position: relative;
+      z-index: 1;
+      color: var(--soft);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+    }
+
+    .value-card .title {
+      position: relative;
+      z-index: 1;
+      margin-top: 12px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .value-card p {
+      position: relative;
+      z-index: 1;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .cta-panel {
+      margin-top: 34px;
+      border-radius: 30px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at top right, rgba(65,255,116,0.14), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cta-panel p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.74;
+      max-width: 720px;
+    }
+
+    .footer {
+      padding: 36px 0 58px;
+      color: var(--soft);
+    }
+
+    .footer-row {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .showcase,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .value-band {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+
+      .grid-3,
+      .value-band {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel,
+      .showcase-copy,
+      .cta-panel {
+        padding: 26px;
+      }
+
+      .showcase-media {
+        min-height: 320px;
+        padding: 20px;
+      }
+
+      .showcase-media img {
+        max-width: 220px;
+      }
+    }
   </style>
 </head>
 <body>
-  <a href="/index.html">← Back</a>
-  <h1>Terms of Use</h1>
-  <p>By using Gymrat you agree to these terms.</p>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+        <img class="brand-logo" src="assets/levelup-logo.png" alt="LevelUp Labs logo" />
+        <div class="brand-copy">
+          <strong>LevelUp Labs</strong>
+          <span>Premium digital fitness experiences</span>
+        </div>
+      </a>
 
-  <h2>Usage</h2>
-  <p>Use the app responsibly and in accordance with applicable laws.</p>
+      <nav class="nav">
+        <a href="#approach">Approach</a>
+        <a href="#product">Product</a>
+        <a href="#vision">Vision</a>
+        <a class="btn btn-secondary" href="https://getgymrat.com" target="_blank" rel="noopener">View Gymrat</a>
+      </nav>
+    </div>
+  </header>
 
-  <h2>Disclaimer</h2>
-  <p>Gymrat is not medical advice. Always use your own judgment and consult a professional when needed.</p>
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-panel">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Umbrella brand for premium fitness products
+          </div>
 
-  <h2>Contact</h2>
-  <p>hello@getgymrat.com</p>
+          <h1>
+            We build <span class="gradient-text">fitness products</span><br />
+            with identity.
+          </h1>
+
+          <p class="lead">
+            LevelUp Labs creates digital fitness experiences designed around progression, retention and strong visual identity. The goal is not just to make apps that work, but products people remember.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://getgymrat.com" target="_blank" rel="noopener">Explore Gymrat</a>
+            <a class="btn btn-secondary" href="https://www.tiktok.com/@getgymrat" target="_blank" rel="noopener">Follow on TikTok</a>
+          </div>
+
+          <p class="hero-note">Built to feel premium • Designed to scale</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="section">
+      <div class="container">
+        <div class="section-kicker">Approach</div>
+        <h2>Products that create momentum.</h2>
+        <p class="section-sub">
+          The best fitness products do more than track behavior. They reinforce consistency, create emotional attachment, and turn progress into something users can actually feel.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Identity-led design</h3>
+            <p>Strong visuals and clear character make products feel memorable from the first second.</p>
+          </div>
+
+          <div class="card">
+            <h3>Retention-first thinking</h3>
+            <p>Progression systems, reward loops and clean product structure help users come back again and again.</p>
+          </div>
+
+          <div class="card">
+            <h3>Premium execution</h3>
+            <p>Every touchpoint should feel polished, sharp and intentional — from landing page to in-app experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="product" class="section">
+      <div class="container">
+        <div class="showcase">
+          <div class="showcase-media">
+            <img src="assets/levelup-logo.png" alt="LevelUp Labs brand mark" />
+          </div>
+
+          <div class="showcase-copy">
+            <div class="kicker">Flagship product</div>
+            <h2>Gymrat by LevelUp Labs</h2>
+            <p>
+              Gymrat is the flagship product: a gamified fitness app built around momentum, progression and visual payoff. It combines XP systems, personal bests, level-ups and a premium green-black identity into an experience that feels rewarding from the very first session.
+            </p>
+            <p>
+              If LevelUp Labs is the vision, Gymrat is the proof.
+            </p>
+
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="https://getgymrat.com" target="_blank" rel="noopener">Go to getgymrat.com</a>
+              <a class="btn btn-secondary" href="https://www.tiktok.com/@getgymrat" target="_blank" rel="noopener">See the journey</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="section">
+      <div class="container">
+        <div class="section-kicker">Vision</div>
+        <h2>Level up your brand. Level up your body. Level up your life.</h2>
+        <p class="section-sub">
+          The mission is bigger than fitness alone. It is about building products that help people feel stronger, more structured, and more connected to their own progress.
+        </p>
+
+        <div class="value-band">
+          <div class="value-card">
+            <div class="small">01</div>
+            <div class="title">Level up your brand</div>
+            <p>Build products with strong identity, premium presence and a clear point of view.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="small">02</div>
+            <div class="title">Level up your body</div>
+            <p>Create systems that support consistency, progression and real physical change over time.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="small">03</div>
+            <div class="title">Level up your life</div>
+            <p>Use product design to reinforce confidence, routine and personal growth far beyond the gym.</p>
+          </div>
+        </div>
+
+        <div class="cta-panel">
+          <div>
+            <h2>Want to see the product in action?</h2>
+            <p>
+              Gymrat is the first public expression of the LevelUp Labs vision — a premium fitness experience built to make progress feel addictive.
+            </p>
+          </div>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://getgymrat.com" target="_blank" rel="noopener">Visit Gymrat</a>
+            <a class="btn btn-secondary" href="https://www.tiktok.com/@getgymrat" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>© 2026 LevelUp Labs</div>
+      <div>
+        <a href="https://getgymrat.com" target="_blank" rel="noopener">Gymrat</a>
+        &nbsp;•&nbsp;
+        <a href="https://www.tiktok.com/@getgymrat" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
